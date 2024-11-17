@@ -205,14 +205,12 @@ int main() {
                 system("CLS");
                 switch (cardchoose) {
 
-
-                    //generates enemy card, and outputs both card choicesase 1:
+                    //generates enemy card, and outputs both card choices
+                case 1:
 
                     playCard = card1;
                     break;
-
-
-                    //determines which card won                    
+                   
                 case 2:
 
                     playCard = card2;
@@ -225,15 +223,16 @@ int main() {
 
                 default:
 
-
-
-                    //checks who won with an if-else statement     
+                    cout << "invalid card choice. \n";
+                    
                     break;
 
                 }
                 eneCard = rand() % 13;
                 cout << "Your card: " << playCard << "\n";
                 cout << "Enemy card: " << eneCard << "\n";
+                
+                 //checks who won with an if-else statement
                 if (playCard > eneCard) {
 
                     cout << "Your card wins!\n";
@@ -337,7 +336,7 @@ int main() {
 
             cout << posicion[0][0] << "\n" << posicion[1][0] << "\n" << posicion[2][0] << "\n" << posicion[3][0] << "\n" << posicion[4][0] << "\n";
 
-            // esto es para darle una pausa al loop para que no tire la carrera de cantaso
+            // esto es para darle una pausa al loop para que no tire la carrera de cantazo
 
             cout << "Cheer on your horse: " << "\n";
 
@@ -439,7 +438,7 @@ int main() {
                     system("CLS");
                 }
             }
-            //esto es para determinar si el caballo que escogiste gano restandole uno al opcion para que sea como el aray
+            //esto es para determinar si el caballo que escogiste gano restandole uno al opcion para que sea como el array
 
             opcion = opcion - 1;
            
@@ -462,11 +461,11 @@ int main() {
            
             system("CLS");
            // this is a opcion to get out of the game
-            cout << " thanks for trying the game i guess luck was not on your side -_-\n \n \n";
+            cout << "Thanks for trying the game, I guess luck was not on your side -_-\n \n \n";
 
             if (winCon1 == true or winCon2 == true or winCon3 == true) {
 
-                cout << "at least you won a game Good for you ;3 \n \n \n";
+                cout << "At least you won a game, good for you ;3 \n \n \n";
 
             }
             return 0;
