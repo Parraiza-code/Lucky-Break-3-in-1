@@ -6,6 +6,7 @@ using namespace std;
 
 // function that produces a coinflip
 // 0 = heads 1 = tails
+//Pedro
 int coinflip() {
     if (rand() % 2 == 0) {
         return 0;
@@ -20,7 +21,7 @@ int main() {
     //Variables used in the games
 
     // variables del Fight Club game
-
+    //Elena
     int num, eneNum, eneHp, opcion, bigD = 0, playerHp;
     bool heal = false;
 
@@ -29,7 +30,7 @@ int main() {
     int card1, card2, card3, cardchoose, playCard, eneCard, playPoints, enePoints;
 
     //variables y arrays de Horse Race
-
+    // Pedro
     int posiC1;
     int posiC2;
     int posiC3;
@@ -57,24 +58,29 @@ int main() {
     bool winCon1 = false, winCon2 = false, winCon3 = false;
 
     // seed for rand inputs 
+    //Pedro
     srand(time(NULL));
 
     // empieza todo el Juego
-
+    //Pedro
     cout << "Lucky Break! \n3-in-1 Arcade Machine \n\n";
 
     //Menu loop using do-while
+    //Pedro
     do {
 
         cout << "Choose a Game, they go from easy to hard\n";
         cout << "1. Fight Club \n2. Card Game \n3. Horse Race \n4. Quit \n";
         cin >> opcion;
-
+        //Clears the screen
+        //Pedro
         system("CLS");
 
+        //switch Case to chose the game u wanna play
+        //Pedro
         switch (opcion) {
         case 1: // starts the fight club minigame
-
+                // Elena
             // reset variables
             heal = false;
             playerHp = 40;
@@ -91,19 +97,19 @@ int main() {
 
                 switch (opcion) {
                 case 1: //attack
-
+                        //Elena
                     num = rand() % 11;
                     cout << "You did " << num << " damage.\n";
                     break;
 
                 case 2: //block
-
+                        //Elena
                     num = 0;
                     cout << "You blocked the attack, reducing enemy damage.\n";
                     break;
 
                 case 3: //heal
-
+                        //Elena
                     if (heal == false) {
                         cout << "You healed 10 hp.\n";
                         playerHp = playerHp + 10;
@@ -117,7 +123,7 @@ int main() {
                     break;
 
                 default: //invalid input
-
+                        //Elena
                     num = 0;
                     cout << "That input doesn't do anything, try again. Dummy.\n";
                     break;
@@ -127,24 +133,29 @@ int main() {
                 
             
                 // enemy attack
+                //Elena
                 while (playerHp > 0) {
 
                     eneNum = rand() % 8;
 
                     // if-else to reduce enemy damage when blocking
+                    //Elena
                     if (opcion == 2) {
 
                         eneNum = eneNum * 0.5;
                         // enemy critical hits when blocked
+                        //Elena
                         if (bigD == 3 or bigD == 6) {
                             eneNum = eneNum * 2;
                         }
                         // damage message when blocking
+                        //Elena
                         cout << "Enemy did " << eneNum << " reduced damage.\n";
 
                     }
                     else {
                         // if-else for enemy critical hit warning/crit damage if not blocked
+                        //Elena
                         if (bigD == 2 or bigD == 5) {
 
                             cout << "Enemy is charging up a devastating attack.\n";
@@ -156,6 +167,7 @@ int main() {
 
                         }
                         // enemy damage message
+                        //Elena
                         cout << "Enemy did " << eneNum << " damage.\n";
                     }
 
@@ -167,10 +179,12 @@ int main() {
 
                 cout << "-----------------------------------------------------\n";
                 // player loss
+                //Elena
                 if (playerHp <= 0) {
 
                 cout << "You died. \n";
                 //generates random card numbers
+                //Elena
                 break;
 
                 }
@@ -189,8 +203,10 @@ int main() {
         
 
         case 2: // starts the card minigame
+            //Elena
 
             //reset variables
+            //Pedro
             playPoints = 0;
             enePoints = 0;
 
@@ -206,6 +222,7 @@ int main() {
                 switch (cardchoose) {
 
                     //generates enemy card, and outputs both card choices
+                    //Elena
                 case 1:
 
                     playCard = card1;
@@ -233,6 +250,7 @@ int main() {
                 cout << "Enemy card: " << eneCard << "\n";
                 
                  //checks who won with an if-else statement
+                //Elena
                 if (playCard > eneCard) {
 
                     cout << "Your card wins!\n";
@@ -257,8 +275,10 @@ int main() {
 
             break;
         case 3: //comienza el juego del Horse Race 
+            //Pedro
 
             // esto es para determinar a cual caballo escogiste 
+            //Pedro
 
             do {
                 cout << "Bet on a horse and pray it wins Good Luck \n";
@@ -270,6 +290,7 @@ int main() {
                 cin >> opcion;
 
                 // uso opcion para el switch case para no crear otra variable 
+                //Pedro
 
                 switch (opcion) {
                 case 1:
@@ -321,6 +342,7 @@ int main() {
 
             system("CLS");
             // Reseting las variables
+            //Pedro
             posiC1 = 0;
             posiC2 = 0;
             posiC3 = 0;
@@ -331,21 +353,25 @@ int main() {
             endRace = false;
             boostbool = false;
             //Comiensa la carrera
+            //Pedro
 
             cout << "Ready" << "\n" << "Set" << "\n" << "GOOOOOOO" << "\n";
 
             cout << posicion[0][0] << "\n" << posicion[1][0] << "\n" << posicion[2][0] << "\n" << posicion[3][0] << "\n" << posicion[4][0] << "\n";
 
             // esto es para darle una pausa al loop para que no tire la carrera de cantazo
+            //Pedro
 
             cout << "Cheer on your horse: " << "\n";
 
             cin >> enter;
 
             //para borrar la pantalla
+            //Pedro
             system("CLS");
 
             //esto es un loop que determina si el caballo se mueve o se queda parado con un coin flip
+            //Pedro
             while (endRace == false) {
 
                 posiC1 = posiC1 + coinflip();
@@ -363,6 +389,7 @@ int main() {
                 cout << posicion[4][posiC5] << "\n";
 
                 // este if es para encontrar si uno de los caballos llegaron al final y de vuelve una variable que detemina el espacio del array y termina el loop
+                //Pedro
                 if (posiC1 >= 5 or posiC2 >= 5 or posiC3 >= 5 or posiC4 >= 5 or posiC5 >= 5) {
                     if (posiC1 >= 5) {
 
@@ -399,12 +426,15 @@ int main() {
                 }
                 else {
 
-
+                    // thos is to give the player a way to move there horse one tile
+                    //Pedro
                     cout << "Cheer on your horse: " << "\n";
 
 
                     cin >> enter;
-
+                    // it uses how long the word is and if it looks like you are sreaming (more than 10 letters the horse you chose moves one tile
+                    //but it can only happen one time
+                    //Pedro
                     boost = enter.length();
                     if (boost > 10) {
                         
@@ -439,6 +469,7 @@ int main() {
                 }
             }
             //esto es para determinar si el caballo que escogiste gano restandole uno al opcion para que sea como el array
+            //Pedro
 
             opcion = opcion - 1;
            
@@ -461,8 +492,12 @@ int main() {
            
             system("CLS");
            // this is a opcion to get out of the game
+            //Pedro y Elena
             cout << "Thanks for trying the game, I guess luck was not on your side -_-\n \n \n";
 
+            //if you won at least one the game will comment
+            //Pedro y Elena
+            
             if (winCon1 == true or winCon2 == true or winCon3 == true) {
 
                 cout << "At least you won a game, good for you ;3 \n \n \n";
@@ -478,13 +513,14 @@ int main() {
         }
 
 
-        
+   // the game will not end until you win all the games
+    //Pedro
     }while (winCon1 == false or winCon2 == false or winCon3 == false);
     system("CLS");
 
     cout << "Congrats, you won all the games!!" << "\n \n \n";
 
     cout << "... what, were you expecting money? lol.\n \n \n";
-
+    //The end
     return 0;
 }
